@@ -21,25 +21,25 @@ const TabNavigator = createBottomTabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: {
-      tabBarIcon: () =>
+      tabBarIcon: ({ tintColor }) =>
         <Image source={require("./image/ic_home.png")}
-          style={{ width: 30, height: 30}} />
+          style={{ width: 30, height: 30, tintColor: tintColor}} />
     }
   },
   Profile: {
     screen: ProfileScreen,
     navigationOptions: {
-      tabBarIcon: () =>
+      tabBarIcon: ({ tintColor }) =>
         <Image source={require("./image/ic_profile.png")}
-               style={{ width: 30, height: 30}} />
+               style={{ width: 30, height: 30, tintColor: tintColor}} />
     }
   },
   Settings: {
     screen: SettingsScreen,
     navigationOptions: {
-      tabBarIcon: () =>
+      tabBarIcon: ({ tintColor }) =>
         <Image source={require("./image/ic_settings.png")}
-               style={{ width: 30, height: 30}} />
+               style={{ width: 30, height: 30, tintColor: tintColor}} />
     }
   }
 }, {
