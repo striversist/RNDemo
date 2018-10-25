@@ -9,6 +9,7 @@
 
 'use strict';
 import React, {Component} from 'react';
+import {Image} from "react-native";
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import {SettingsScreen} from "./screen/Settings";
 import {ProfileScreen} from "./screen/Profile";
@@ -17,9 +18,32 @@ import {DetailsScreen} from "./screen/Details";
 
 
 const TabNavigator = createBottomTabNavigator({
-  Home: HomeScreen,
-  Profile: ProfileScreen,
-  Settings: SettingsScreen
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      tabBarIcon: () =>
+        <Image source={require("./image/ic_home.png")}
+          style={{ width: 30, height: 30}} />
+    }
+  },
+  Profile: {
+    screen: ProfileScreen,
+    navigationOptions: {
+      tabBarIcon: () =>
+        <Image source={require("./image/ic_profile.png")}
+               style={{ width: 30, height: 30}} />
+    }
+  },
+  Settings: {
+    screen: SettingsScreen,
+    navigationOptions: {
+      tabBarIcon: () =>
+        <Image source={require("./image/ic_settings.png")}
+               style={{ width: 30, height: 30}} />
+    }
+  }
+}, {
+  initialRouteName: 'Home'
 });
 
 const RootStack = createStackNavigator({
