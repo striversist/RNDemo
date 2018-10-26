@@ -10,14 +10,14 @@
 'use strict';
 import React, {Component} from 'react';
 import {Image} from "react-native";
-import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
+import {createTabNavigator, createStackNavigator} from 'react-navigation';
 import {SettingsScreen} from "./screen/Settings";
 import {ProfileScreen} from "./screen/Profile";
 import {HomeScreen} from "./screen/Home"
 import {DetailsScreen} from "./screen/Details";
 
-
-const TabNavigator = createBottomTabNavigator({
+console.disableYellowBox=true;
+const TabNavigator = createTabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: {
@@ -43,7 +43,30 @@ const TabNavigator = createBottomTabNavigator({
     }
   }
 }, {
-  initialRouteName: 'Home'
+  initialRouteName: 'Home',
+  tabBarPosition: 'bottom',
+  backBehavior: "none",
+
+  tabBarOptions: {
+    upperCaseLabel: false,
+    showIcon: true,
+    showLabel: false,
+    activeTintColor: "#23a2f2", //label和icon的前景色 活跃状态下（选中）
+    inactiveTintColor: "#72c9ff", //label和icon的前景色 活跃状态下（未选中）
+    style: {
+      //TabNavigator 的背景颜色
+      backgroundColor: "white",
+      height: 50
+    },
+    indicatorStyle: {
+      //标签指示器的样式对象（选项卡底部的行）。安卓底部会多出一条线，可以将height设置为0来暂时解决这个问题
+      height: 0
+    },
+    iconStyle: {
+      //图标的样式
+      marginBottom: 5
+    }
+  }
 });
 
 const RootStack = createStackNavigator({
