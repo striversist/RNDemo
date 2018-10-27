@@ -15,6 +15,7 @@ import {SettingsScreen} from "./screen/Settings";
 import {ProfileScreen} from "./screen/Profile";
 import {HomeScreen} from "./screen/Home"
 import {DetailsScreen} from "./screen/Details";
+import {ListDemo} from "./screen/ListDemo";
 
 console.disableYellowBox=true;
 const TabNavigator = createTabNavigator({
@@ -41,9 +42,17 @@ const TabNavigator = createTabNavigator({
         <Image source={require("./image/ic_settings.png")}
                style={{ width: 30, height: 30, tintColor: tintColor}} />
     }
+  },
+  Demo: {
+    screen: ListDemo,
+    navigationOptions: {
+      tabBarIcon: ({tintColor}) =>
+        <Image source={require("./image/ic_settings.png")}
+               style={{width: 30, height: 30, tintColor: tintColor}}/>
+    }
   }
 }, {
-  initialRouteName: 'Home',
+  initialRouteName: 'Demo',
   tabBarPosition: 'bottom',
   backBehavior: "none",
 
@@ -75,6 +84,7 @@ const RootStack = createStackNavigator({
   Profile: ProfileScreen,
   Settings: SettingsScreen,
   Details: DetailsScreen,
+  ListDemo: ListDemo,
 });
 
 export default class App extends Component {

@@ -37,7 +37,14 @@ export class HomeScreen extends React.Component {
           onPress={() => {
             this.props.navigation.navigate('Details', {itemId: 88})
           }}>
-          <Text> Touch Here </Text>
+          <Text> Details </Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => {
+            this.props.navigation.navigate('ListDemo', {itemId: 88})
+          }}>
+          <Text> ListDemo </Text>
         </TouchableHighlight>
         <Text>Count: {this.state.count}</Text>
         <Image source={require('../image/my-icon.png')} />
