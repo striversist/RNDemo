@@ -10,7 +10,7 @@
 'use strict';
 import React, {Component} from 'react';
 import {Image} from "react-native";
-import {createTabNavigator, createStackNavigator} from 'react-navigation';
+import {TabNavigator, createStackNavigator} from 'react-navigation';
 import {SettingsScreen} from "./screen/Settings";
 import {ProfileScreen} from "./screen/Profile";
 import {HomeScreen} from "./screen/Home"
@@ -18,7 +18,7 @@ import {DetailsScreen} from "./screen/Details";
 import {ListDemo} from "./screen/ListDemo";
 
 console.disableYellowBox=true;
-const TabNavigator = createTabNavigator({
+const RootTabs = TabNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: {
@@ -79,7 +79,7 @@ const TabNavigator = createTabNavigator({
 });
 
 const RootStack = createStackNavigator({
-  Tab: TabNavigator,
+  Tab: RootTabs,
   Home: HomeScreen,
   Profile: ProfileScreen,
   Settings: SettingsScreen,
