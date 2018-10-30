@@ -1,19 +1,25 @@
 import React from "react";
-import {FlatList, Text, View} from "react-native";
+import {FlatList, Text, View, StyleSheet} from "react-native";
 
-const flatListData = [
-  {key: 'a', text: 'aaa'},
-  {key: 'b', text: 'bbb'},
-  {key: 'c', text: 'ccc'},
-  {key: 'd', text: 'ddd'},
-  {key: 'e', text: 'eee'},
-  {key: 'f', text: 'fff'},
-  {key: 'g', text: 'ggg'},
-  {key: 'h', text: 'hhh'},
-  {key: 'i', text: 'iii'},
-  {key: 'j', text: 'jjj'},
-  {key: 'k', text: 'kkk'},
-];
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+    color:'#232323',
+  },
+  news:{
+    fontSize:20,
+    paddingLeft:10,
+    borderBottomColor:'#dadada',
+    borderBottomWidth:1,
+    justifyContent:'center',
+  }
+});
 
 export class ListDemo extends React.Component {
 
@@ -21,26 +27,32 @@ export class ListDemo extends React.Component {
     super(props);
   }
 
-  _renderItem = ({item}) => (
-    <Text style={{height: 50, fontSize: 30}}>{item.key}</Text>
-  )
-
-  _keyExtractor = (item, index) => item.key;
-
-  _ListHeaderComponent = () => {
-    return (
-      <Text>This is header component</Text>
-    )
-  }
-
   render() {
     return (
-      <FlatList
-        renderItem={this._renderItem}
-        data={flatListData}
-        keyExtractor={this._keyExtractor}
-        ListHeaderComponent={this._ListHeaderComponent}
-      />
+      <View style={styles.container}>
+        <Text style={styles.news}>新闻列表</Text>
+        <FlatList
+          data={[
+            {key: 'Devin'},
+            {key: 'Jackson'},
+            {key: 'James'},
+            {key: 'Joel'},
+            {key: 'John'},
+            {key: 'Jillian'},
+            {key: 'Jimmy'},
+            {key: 'Julie'},
+            {key: 'Devin'},
+            {key: 'Jackson'},
+            {key: 'James'},
+            {key: 'Joel'},
+            {key: 'John'},
+            {key: 'Jillian'},
+            {key: 'Jimmy'},
+            {key: 'Julie'},
+          ]}
+          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        />
+      </View>
     )
   }
 }
